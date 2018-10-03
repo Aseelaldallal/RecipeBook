@@ -1,4 +1,4 @@
-import { Ingredient } from "../shared/ingredient.model";
+import { Ingredient } from '../shared/ingredient.model';
 
 // Blueprint for objects we create
 export class Recipe {
