@@ -27,7 +27,7 @@ export class RecipeService {
     this.slService.addIngredients(ingredients);
   }
 
-  getRecipe(index: number) {
+  getRecipe(index: number): Recipe {
     return this.recipes[index];
   }
 }
