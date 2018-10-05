@@ -31,7 +31,7 @@ import { ShoppingListService } from "./shopping-list/shopping-list.service";
     RecipeEditComponent
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule],
-  providers: [RecipeService, ShoppingListService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
