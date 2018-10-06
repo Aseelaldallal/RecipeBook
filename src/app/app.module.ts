@@ -13,11 +13,9 @@ import { DropdownDirective } from "./shared/dropdown.directive";
 import { AppRoutingModule } from "./app-routing.module";
 import { RecipeStartComponent } from "./recipes/recipe-start/recipe-start.component";
 import { RecipeEditComponent } from "./recipes/recipe-edit/recipe-edit.component";
-import { RecipeService } from "./recipes/recipe.service";
-import { ShoppingListService } from "./shopping-list/shopping-list.service";
-import { HttpModule } from "@angular/http";
-import { SignupComponent } from './auth/signup/signup.component';
-import { SigninComponent } from './auth/signin/signin.component';
+import { SignupComponent } from "./auth/signup/signup.component";
+import { SigninComponent } from "./auth/signin/signin.component";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -35,7 +33,13 @@ import { SigninComponent } from './auth/signin/signin.component';
     SignupComponent,
     SigninComponent
   ],
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule, HttpModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
