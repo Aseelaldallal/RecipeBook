@@ -29,7 +29,10 @@ export class AuthService {
   }
 
   async getToken() {
-    return await firebase.auth().currentUser.getIdToken();
+    if (firebase.auth().currentUser) {
+      return await firebase.auth().currentUser.getIdToken();
+    }
+    return null;
   }
 
   logout() {
