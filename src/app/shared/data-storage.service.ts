@@ -15,9 +15,10 @@ export class DataStorageService {
     private authService: AuthService
   ) {}
 
-  storeRecipes() {
+  async storeRecipes() {
+    const token = await this.authService.getToken();
     return this.http.put(
-      "https://ng-recipe-book-d8021.firebaseio.com/recipes.json",
+      "https://ng-recipe-book-d8021.firebaseio.com/recipes.json?auth=" + token,
       this.recipeService.getRecipes()
     );
   }
@@ -33,7 +34,6 @@ export class DataStorageService {
           const recipes: Recipe[] = response.json();
           for (const recipe of recipes) {
             if (!recipe.ingredients) {
-              console.log(recipe);
               recipe.ingredients = [];
             }
           }

@@ -12,10 +12,12 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {}
 
-  onSaveData() {
-    this.dataStorageService.storeRecipes().subscribe((response: Response) => {
-      console.log(response);
-    });
+  async onSaveData() {
+    (await this.dataStorageService.storeRecipes()).subscribe(
+      (response: Response) => {
+        console.log(response);
+      }
+    );
   }
 
   onFetchData() {
