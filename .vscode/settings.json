@@ -1,2 +1,8 @@
 {
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "prettier.tabWidth": 8,
+  "editor.detectIndentation": false,
+  "editor.tabSize": 4
 }
