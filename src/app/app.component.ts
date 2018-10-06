@@ -11,7 +11,6 @@ declare const process: any;
 })
 export class AppComponent implements OnInit {
   ngOnInit() {
-    console.log(process.env);
     firebase.initializeApp({
       apiKey: process.env.API_KEY,
       authDomain: process.env.AUTH_DOMAIN
