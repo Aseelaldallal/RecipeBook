@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import {} from "firebase";
+import * as firebase from "firebase";
 
 @Injectable({
   providedIn: "root"
@@ -7,5 +7,10 @@ import {} from "firebase";
 export class AuthService {
   constructor() {}
 
-  signupUser(email: string, password: string) {}
+  signupUser(email: string, password: string) {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .catch(error => console.log("ERROR: ", error));
+  }
 }

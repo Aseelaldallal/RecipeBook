@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import * as firebase from "firebase";
 
+declare const process: any;
+
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -9,6 +11,7 @@ import * as firebase from "firebase";
 })
 export class AppComponent implements OnInit {
   ngOnInit() {
+    console.log(process.env);
     firebase.initializeApp({
       apiKey: process.env.API_KEY,
       authDomain: process.env.AUTH_DOMAIN
