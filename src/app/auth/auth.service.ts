@@ -29,4 +29,8 @@ export class AuthService {
   async getToken() {
     return await firebase.auth().currentUser.getIdToken();
   }
+
+  isAuthenticated() {
+    return this.token !== null;
+  }
 }
