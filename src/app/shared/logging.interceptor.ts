@@ -22,3 +22,13 @@ export class LoggingInterceptor implements HttpInterceptor {
 
 // tap allows you to execute some code on any data that goes through the observable WITHOUT consuming. Thats
 // the difference to subscribe
+
+// take a look at this - specific to response
+// intercept(req: HttpRequest < any >, next: HttpHandler): Observable < HttpEvent < any >> {
+//     return next.handle(req).map(event => {
+//         if (event instanceof HttpResponse && shouldBeIntercepted(event)) {
+//             event = event.clone({ body: resolveReferences(event.body) })
+//         }
+//         return event;
+//     });
+// }
