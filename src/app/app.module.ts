@@ -17,6 +17,7 @@ import { SignupComponent } from "./auth/signup/signup.component";
 import { SigninComponent } from "./auth/signin/signin.component";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AuthInterceptor } from "./shared/auth.interceptor";
+import { LoggingInterceptor } from "./shared/logging.interceptor";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,9 @@ import { AuthInterceptor } from "./shared/auth.interceptor";
     HttpClientModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    // the order you have here matters
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
