@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import * as firebase from "firebase";
 import { Router } from "@angular/router";
+import { Observable, from } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -30,9 +31,17 @@ export class AuthService {
 
   async getToken() {
     if (firebase.auth().currentUser) {
-      return await firebase.auth().currentUser.getIdToken();
+      return from(firebase.auth().currentUser.getIdToken());
     }
     return null;
+  }
+
+  getToken2() {
+    if (firebase.auth().currentUser) {
+      return from(firebase.auth().currentUser.getIdToken());
+    } else {
+      return null;
+    }
   }
 
   logout() {

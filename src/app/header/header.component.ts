@@ -19,13 +19,13 @@ export class HeaderComponent implements OnInit {
 
   async onSaveData() {
     (await this.dataStorageService.storeRecipes()).subscribe(
-      //   (response: Response) => {
-      //     console.log(response);
-      //   }
-      (response: HttpEvent<Object>) => {
+      (response: Response) => {
         console.log(response);
       }
     );
+    //   (response: HttpEvent<Object>) => {
+    //     console.log(response);
+    //   }
   }
 
   onFetchData() {

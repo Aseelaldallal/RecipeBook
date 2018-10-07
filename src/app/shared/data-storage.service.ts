@@ -21,20 +21,19 @@ export class DataStorageService {
   ) {}
 
   async storeRecipes() {
-    const token = await this.authService.getToken();
-    // return this.httpClient.put(
-    //   "https://ng-recipe-book-d8021.firebaseio.com/recipes.json?auth=" + token,
-    //   this.recipeService.getRecipes()
-    // ); // You can add a third argument here, observe: event. Then you can go in the middle by listening to event in subscribe
+    return this.httpClient.put(
+      "https://ng-recipe-book-d8021.firebaseio.com/recipes.json",
+      this.recipeService.getRecipes()
+    ); // You can add a third argument here, observe: event. Then you can go in the middle by listening to event in subscribe
 
     // Listen to the progress the request made
-    const req = new HttpRequest(
-      "PUT",
-      "https://ng-recipe-book-d8021.firebaseio.com/recipes.json",
-      this.recipeService.getRecipes(),
-      { reportProgress: true, params: new HttpParams().set("auth", token) } // useful if uploading or downloading
-    );
-    return this.httpClient.request(req);
+    // const req = new HttpRequest(
+    //   "PUT",
+    //   "https://ng-recipe-book-d8021.firebaseio.com/recipes.json",
+    //   this.recipeService.getRecipes(),
+    //   { reportProgress: true, params: new HttpParams().set("auth", token) } // useful if uploading or downloading
+    // );
+    // return this.httpClient.request(req);
   }
 
   async getRecipes() {
@@ -49,7 +48,6 @@ export class DataStorageService {
       )
       .pipe(
         map(recipes => {
-          console.log(recipes);
           for (const recipe of recipes) {
             if (!recipe.ingredients) {
               recipe.ingredients = [];
